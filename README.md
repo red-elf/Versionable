@@ -30,8 +30,9 @@ export VERSIONABLE_VERSION_PATCH="0"          # Optional
 
 ## CMake integration
 
-Pass the values of the environment variables from the `version.sh` to the CMake script:
+To integrate the version for your software follow the following steps:
 
+Pass the values of the environment variables from the `version.sh` to the CMake script: 
 ```shell
 source ../../Version/version.sh && \
   cmake -DVERSIONABLE_VERSION_PRIMARY=$VERSIONABLE_VERSION_PRIMARY \
@@ -39,3 +40,46 @@ source ../../Version/version.sh && \
 ```
 
 *Note:* Paths to files and scripts of the example command depend on your project's directories setup.
+
+In the `CMakeList.txt` use the provided values:
+
+```cmake
+set(VERSION_MAJOR ${VERSIONABLE_VERSION_PRIMARY})
+set(VERSION_MINOR ${VERSIONABLE_VERSION_SECONDARY})
+
+configure_file(
+        "${CMAKE_CURRENT_SOURCE_DIR}/YourLibrary.h.in"
+        "${CMAKE_CURRENT_SOURCE_DIR}/YourLibrary.h"
+)
+```
+
+And use it in the header files:
+
+- `YourLibrary.h`:
+
+```c++
+#define VERSION_MAJOR 1
+#define VERSION_MINOR 0
+```
+
+- `YourLibrary.h.in`:
+
+```c++
+#define VERSION_MAJOR @VERSION_MAJOR@
+#define VERSION_MINOR @VERSION_MINOR@
+```
+
+The version information is now available in your code (example):
+
+```c++
+#include "YourLibrary.h"
+
+namespace YourLibrary::Info {
+
+    static const std::string getVersion() {
+        std::string majorVersion = std::to_string(VERSION_MAJOR);
+        std::string minorVersion = std::to_string(VERSION_MINOR);
+        return majorVersion + "." + minorVersion;
+    }
+}
+```
