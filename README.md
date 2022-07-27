@@ -22,8 +22,8 @@ The following scripts are mandatory:
 - version.sh:
 ```shell
 #!/bin/bash
-export VERSIONABLE_NAME="NAME_OF_THE_VERSION"
+export VERSIONABLE_NAME="NAME_OF_THE_VERSION" # Optional
 export VERSIONABLE_VERSION_PRIMARY="1"
 export VERSIONABLE_VERSION_SECONDARY="0"
-export VERSIONABLE_VERSION_PATCH="0"
+export VERSIONABLE_VERSION_PATCH="0"          # Optional
 ```
