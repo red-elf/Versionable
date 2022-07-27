@@ -27,3 +27,15 @@ export VERSIONABLE_VERSION_PRIMARY="1"
 export VERSIONABLE_VERSION_SECONDARY="0"
 export VERSIONABLE_VERSION_PATCH="0"          # Optional
 ```
+
+## CMake integration
+
+Pass the values of the environment variables from the `version.sh` to the CMake script:
+
+```shell
+source ../../Version/version.sh && \
+  cmake -DVERSIONABLE_VERSION_PRIMARY=$VERSIONABLE_VERSION_PRIMARY \
+  -DVERSIONABLE_VERSION_SECONDARY=$VERSIONABLE_VERSION_SECONDARY ..
+```
+
+*Note:* Paths to files and scripts of the example command depend on your project's directories setup.
