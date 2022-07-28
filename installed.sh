@@ -24,5 +24,5 @@ if test -e "$VERSION_SCRIPT"; then
   fi
 else
 
-  echo "ERROR: The '$VERSION_VERSION_SCRIPT' script not found"
+  echo "ERROR: The '$VERSION_SCRIPT' script not found"
 fi

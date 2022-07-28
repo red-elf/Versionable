@@ -28,5 +28,5 @@ if test -e "$VERSION_SCRIPT"; then
   printf "%s.%s.%s\n" "$VERSIONABLE_VERSION_PRIMARY" "$VERSIONABLE_VERSION_SECONDARY" "$VERSIONABLE_VERSION_PATCH"
 else
 
-  echo "ERROR: The '$VERSION_VERSION_SCRIPT' script not found"
+  echo "ERROR: The '$VERSION_SCRIPT' script not found"
 fi
