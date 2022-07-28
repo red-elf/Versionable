@@ -13,6 +13,8 @@ configure_file(
         "${CMAKE_CURRENT_SOURCE_DIR}/BuildConfig.h"
 )
 
+configure_file(${PROJECT_SOURCE_DIR}/../Versionable/Cpp/Version.cpp ${PROJECT_SOURCE_DIR} COPYONLY)
+
 include_directories("${PROJECT_BINARY_DIR}")
 
 file(
@@ -21,4 +23,5 @@ file(
         "*.cpp"
 )
 
-add_executable(Version ${APP_SRC} "../../Versionable/Cpp/version.cpp")
+
+add_executable(Version ${APP_SRC})
