@@ -21,7 +21,7 @@ if test -e "$VERSION_SCRIPT"; then
 
   if [ -z "$VERSIONABLE_VERSION_PATCH" ]; then
 
-    echo "ERROR: The secondary version number not set"
+    echo "ERROR: The patch version number not set"
     exit 1
   fi
 

@@ -7,6 +7,12 @@ if test -e "$VERSION_SCRIPT"; then
   # shellcheck disable=SC1090
   . "$VERSION_SCRIPT"
 
+  if [ -z "$VERSIONABLE_NAME" ]; then
+
+    echo "ERROR: The version name not set"
+    exit 1
+  fi
+
   VERSION_EXECUTABLE=/usr/local/bin/"${VERSIONABLE_NAME}"_Version/"${VERSIONABLE_NAME}"_Version
 
   if test -e "$VERSION_EXECUTABLE"; then
