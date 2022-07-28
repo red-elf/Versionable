@@ -1,12 +1,13 @@
 cmake_minimum_required(VERSION 3.22)
-project(Versionable)
-
-set(CMAKE_CXX_STANDARD 17)
 
 set(VERSIONABLE_NAME ${VERSIONABLE_NAME})
 set(VERSIONABLE_VERSION_PATCH ${VERSIONABLE_VERSION_PATCH})
 set(VERSIONABLE_VERSION_PRIMARY ${VERSIONABLE_VERSION_PRIMARY})
 set(VERSIONABLE_VERSION_SECONDARY ${VERSIONABLE_VERSION_SECONDARY})
+
+project(${VERSIONABLE_NAME}_Version)
+
+set(CMAKE_CXX_STANDARD 17)
 
 configure_file(
         "${CMAKE_CURRENT_SOURCE_DIR}/BuildConfig.h.in"
@@ -23,5 +24,6 @@ file(
         "*.cpp"
 )
 
+add_executable(${PROJECT_NAME} ${APP_SRC})
 
-add_executable(Version ${APP_SRC})
+install(TARGETS ${PROJECT_NAME} DESTINATION bin/${PROJECT_NAME})

@@ -22,7 +22,7 @@ The following scripts are mandatory:
 - version.sh:
 ```shell
 #!/bin/bash
-export VERSIONABLE_NAME="NAME_OF_THE_VERSION" # Optional
+export VERSIONABLE_NAME="PROJECT_NAME"
 export VERSIONABLE_VERSION_PRIMARY="1"
 export VERSIONABLE_VERSION_SECONDARY="0"
 export VERSIONABLE_VERSION_PATCH="0"          # Optional
@@ -36,7 +36,8 @@ Pass the values of the environment variables from the `version.sh` to the CMake 
 ```shell
 source ../../Version/version.sh && \
   cmake -DVERSIONABLE_VERSION_PRIMARY=$VERSIONABLE_VERSION_PRIMARY \
-  -DVERSIONABLE_VERSION_SECONDARY=$VERSIONABLE_VERSION_SECONDARY ..
+  -DVERSIONABLE_VERSION_SECONDARY=$VERSIONABLE_VERSION_SECONDARY \
+   -DVERSIONABLE_NAME=$VERSIONABLE_NAME ..
 ```
 
 *Note:* Paths to files and scripts of the example command depend on your project's directories setup.
@@ -44,6 +45,7 @@ source ../../Version/version.sh && \
 In the `CMakeList.txt` use the provided values:
 
 ```cmake
+set(VERSIONABLE_NAME ${VERSIONABLE_NAME})
 set(VERSION_MAJOR ${VERSIONABLE_VERSION_PRIMARY})
 set(VERSION_MINOR ${VERSIONABLE_VERSION_SECONDARY})
 
@@ -68,6 +70,7 @@ And use it in the header files:
 ```c++
 #define VERSION_MAJOR 1
 #define VERSION_MINOR 0
+#define VERSIONABLE_NAME YourLibrary
 ```
 
 - `YourLibrary.h.in`:
@@ -75,6 +78,7 @@ And use it in the header files:
 ```c++
 #define VERSION_MAJOR @VERSION_MAJOR@
 #define VERSION_MINOR @VERSION_MINOR@
+#define VERSIONABLE_NAME @VERSIONABLE_NAME@
 ```
 
 The version information is now available in your code (example):
