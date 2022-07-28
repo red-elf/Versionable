@@ -53,7 +53,7 @@ configure_file(
 )
 ```
 
-*Note* To support 'Versionable' you can include the [CMake snippet](CMake/CMakeLists.txt) (example): 
+*Note:* To support 'Versionable' you can include the [CMake snippet](CMake/CMakeLists.txt). Here is the example of the code: 
 
 ```cmake
 cmake_minimum_required(VERSION 3.22)
