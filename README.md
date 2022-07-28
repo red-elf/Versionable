@@ -26,7 +26,7 @@ The following scripts are mandatory:
 export VERSIONABLE_NAME="PROJECT_NAME"        # Mandatory
 export VERSIONABLE_VERSION_PRIMARY="1"        # Mandatory
 export VERSIONABLE_VERSION_SECONDARY="0"      # Mandatory
-export VERSIONABLE_VERSION_PATCH="0"          # Optional
+export VERSIONABLE_VERSION_PATCH="0"          # Mandatory
 ```
 
 ## CMake integration
