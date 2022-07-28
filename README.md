@@ -2,35 +2,36 @@
 
 Track the version of the software and the software components.
 
-The following functionaliies provided:
+The following functionalities provided:
 
-- Obtain the current version of the project (the code repository)
-- Obtain the installed version of the project
-- Compare the installed and cloned repository versions
+- Obtain the `current` version of the project (the cloned code repository)
+- Obtain the `installed` version of the project (installed on the system)
+- Compare the current and installed repository versions
 - Provide the mechanism for keeping the version at one central place and share with 3rd parties (CMake).
 
 ## How to use
 
 - Clone the 'Versionable' in the root of the project as the git submodule under the 'Versionable' directory
-- In the root of the project create a directory called 'Version'
+- In the root of the project create the directory called 'Version'
 - Inside the 'Version' directory define the mandatory shell scripts (see the next section)
 
 ## Mandatory shell scripts
 
 The following scripts are mandatory:
 
-- version.sh:
+- `version.sh` which provides the information about your project version:
+
 ```shell
 #!/bin/bash
-export VERSIONABLE_NAME="PROJECT_NAME"
-export VERSIONABLE_VERSION_PRIMARY="1"
-export VERSIONABLE_VERSION_SECONDARY="0"
+export VERSIONABLE_NAME="PROJECT_NAME"        # Mandatory
+export VERSIONABLE_VERSION_PRIMARY="1"        # Mandatory
+export VERSIONABLE_VERSION_SECONDARY="0"      # Mandatory
 export VERSIONABLE_VERSION_PATCH="0"          # Optional
 ```
 
 ## CMake integration
 
-To integrate the version for your software follow the following steps:
+To integrate the version information for your software follow the steps:
 
 Pass the values of the environment variables from the `version.sh` to the CMake script: 
 ```shell
@@ -55,7 +56,7 @@ configure_file(
 )
 ```
 
-*Note:* To support 'Versionable' you can include the [CMake snippet](CMake/CMakeLists.txt). Here is the example of the code: 
+*Note:* To fully support 'Versionable' you should include the [CMake snippet](CMake/CMakeLists.txt). Here is the example of the code: 
 
 ```cmake
 cmake_minimum_required(VERSION 3.22)
@@ -63,7 +64,7 @@ cmake_minimum_required(VERSION 3.22)
 include(${CMAKE_CURRENT_SOURCE_DIR}/../Versionable/CMake/CMakeLists.txt)
 ```
 
-And use it in the header files:
+Use the version information in the header files:
 
 - `YourLibrary.h`:
 
@@ -81,7 +82,7 @@ And use it in the header files:
 #define VERSIONABLE_NAME @VERSIONABLE_NAME@
 ```
 
-The version information is now available in your code (example):
+The version information is available in your code (example):
 
 ```c++
 #include "YourLibrary.h"
