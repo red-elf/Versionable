@@ -13,7 +13,7 @@ if test -e "$VERSION_SCRIPT"; then
     exit 1
   fi
 
-  VERSION_EXECUTABLE=/usr/local/bin/"${VERSIONABLE_NAME}"_Version/"${VERSIONABLE_NAME}"_Version
+  VERSION_EXECUTABLE=/usr/local/bin/"${VERSIONABLE_NAME}"/"${VERSIONABLE_NAME}"_Version
 
   if test -e "$VERSION_EXECUTABLE"; then
 
