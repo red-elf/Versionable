@@ -1,5 +1,6 @@
 #!/bin/bash
 
+SEARCH_PATH="/usr/local/lib"
 VERSION_SCRIPT="Version/version.sh"
 
 if test -e "$VERSION_SCRIPT"; then
@@ -13,16 +14,13 @@ if test -e "$VERSION_SCRIPT"; then
     exit 1
   fi
 
-  VERSION_EXECUTABLE=/usr/local/bin/"${VERSIONABLE_NAME}"/"${VERSIONABLE_NAME}"_Version
+  for entry in "$SEARCH_PATH"/*; do
 
-  if test -e "$VERSION_EXECUTABLE"; then
+    FULL_ENTRY="$(echo "$entry" | grep "$VERSIONABLE_NAME")"
 
-    "$VERSION_EXECUTABLE"
-  else
+    if ! [[ "$FULL_ENTRY" = "" ]]; then
 
-    echo "No version information available for the '${VERSIONABLE_NAME}'"
-  fi
-else
-
-  echo "ERROR: The '$VERSION_SCRIPT' script not found"
+      echo "${FULL_ENTRY/"$SEARCH_PATH/"/}"
+    fi
+  done
 fi
