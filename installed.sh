@@ -20,7 +20,7 @@ if test -e "$VERSION_SCRIPT"; then
 
     if ! [[ "$FULL_ENTRY" = "" ]]; then
 
-      echo "${FULL_ENTRY/"$SEARCH_PATH/"/}"
+      echo "${FULL_ENTRY/"$SEARCH_PATH/$VERSIONABLE_NAME-"/}"
     fi
   done
 fi
