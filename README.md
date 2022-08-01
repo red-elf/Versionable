@@ -96,3 +96,14 @@ namespace YourLibrary::Info {
     }
 }
 ```
+
+## Additional variables
+
+The following environment variables can be defined for the `version.sh` script:
+
+```shell
+export VERSIONABLE_SNAPSHOT=true
+```
+
+If set to true, the ['Dependable'](https://github.com/red-elf/Dependable) `install_dependencies` script will rebuild 
+and reinstall the dependency on each run.
