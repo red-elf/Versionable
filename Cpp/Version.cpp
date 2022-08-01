@@ -9,10 +9,13 @@ int main() {
               "." << std::to_string(VERSIONABLE_VERSION_SECONDARY) <<
               "." << std::to_string(VERSIONABLE_VERSION_PATCH);
 
+#if defined(VERSIONABLE_SNAPSHOT)
+
     if (VERSIONABLE_SNAPSHOT) {
 
         std::cout << "-SNAPSHOT";
     }
+#endif
 
     std::cout << std::endl;
     return 0;
