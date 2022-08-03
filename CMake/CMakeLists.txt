@@ -28,12 +28,13 @@ message("Project: ${PROJECT_NAME}")
 
 set(CMAKE_CXX_STANDARD 17)
 
+configure_file(${PROJECT_SOURCE_DIR}/../Versionable/Cpp/Version.cpp ${PROJECT_SOURCE_DIR} COPYONLY)
+configure_file(${PROJECT_SOURCE_DIR}/../Versionable/Cpp/BuildConfig.h.in ${PROJECT_SOURCE_DIR} COPYONLY)
+
 configure_file(
         "${CMAKE_CURRENT_SOURCE_DIR}/BuildConfig.h.in"
         "${CMAKE_CURRENT_SOURCE_DIR}/BuildConfig.h"
 )
-
-configure_file(${PROJECT_SOURCE_DIR}/../Versionable/Cpp/Version.cpp ${PROJECT_SOURCE_DIR} COPYONLY)
 
 include_directories("${PROJECT_BINARY_DIR}")
 
