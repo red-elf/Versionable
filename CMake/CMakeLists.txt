@@ -28,7 +28,11 @@ message("Project: ${PROJECT_NAME}")
 
 set(CMAKE_CXX_STANDARD 17)
 
-configure_file(${PROJECT_SOURCE_DIR}/../Versionable/Cpp/Version.cpp ${PROJECT_SOURCE_DIR} COPYONLY)
+if ("${VERSIONABLE_VERSION_EXECUTABLE}" MATCHES "ON")
+
+    configure_file(${PROJECT_SOURCE_DIR}/../Versionable/Cpp/Version.cpp ${PROJECT_SOURCE_DIR} COPYONLY)
+endif()
+
 configure_file(${PROJECT_SOURCE_DIR}/../Versionable/Cpp/BuildConfig.h.in ${PROJECT_SOURCE_DIR} COPYONLY)
 
 configure_file(
@@ -44,6 +48,9 @@ file(
         "*.cpp"
 )
 
-add_executable(Version ${APP_SRC})
+if ("${VERSIONABLE_VERSION_EXECUTABLE}" MATCHES "ON")
 
-install(TARGETS Version DESTINATION bin/${PROJECT_NAME})
+    add_executable(Version ${APP_SRC})
+
+    install(TARGETS Version DESTINATION bin/${PROJECT_NAME})
+endif()
