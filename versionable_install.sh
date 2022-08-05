@@ -16,7 +16,7 @@ if ! test -e "$VERSION_SCRIPT"; then
 fi
 
 # shellcheck disable=SC1090
-source "$VERSION_SCRIPT" && \
+. "$VERSION_SCRIPT" && \
   echo "Please provide your SUDO password in order to install the '$VERSIONABLE_NAME' target to your system" && \
   cd "$TARGET/Build" && \
   sudo ninja install && \
