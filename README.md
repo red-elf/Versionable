@@ -114,3 +114,5 @@ and reinstall the dependency on each run.
 To override the `installed.sh` script create your version of the script under the `Version` directory.
 Executing the `installed.sh` script from the `Versionable` directory will redirect to your version of the script
 and execute it.
+
+The same rule apply to the `current.sh` script.
