@@ -25,11 +25,11 @@ fi
 
 # shellcheck disable=SC1090
 source "$VERSION_SCRIPT" && \
-  echo "Installing the '$VERSIONABLE_NAME' target, please wait" &&
-  cd "$TARGET" &&
-  rm -rf ./Build &&
-  mkdir Build &&
-  cd Build &&
+  echo "Installing the '$VERSIONABLE_NAME' target, please wait" && \
+  cd "$TARGET" && \
+  rm -rf ./Build && \
+  mkdir Build && \
+  cd Build && \
   source "$VERSION_SCRIPT" && cmake -GNinja -DVERSIONABLE_VERSION_PRIMARY="$VERSIONABLE_VERSION_PRIMARY" \
   -DVERSIONABLE_VERSION_SECONDARY="$VERSIONABLE_VERSION_SECONDARY" -DVERSIONABLE_NAME="$VERSIONABLE_NAME" \
   -DVERSIONABLE_VERSION_PATCH="$VERSIONABLE_VERSION_PATCH" -DVERSIONABLE_SNAPSHOT="$VERSIONABLE_SNAPSHOT" \
