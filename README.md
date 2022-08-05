@@ -108,3 +108,9 @@ export VERSIONABLE_SNAPSHOT=true
 
 If set to true, the ['Dependable'](https://github.com/red-elf/Dependable) `install_dependencies` script will rebuild 
 and reinstall the dependency on each run.
+
+## Overriding scripts
+
+To override the `installed.sh` script create your version of the script under the `Version` directory.
+Executing the `installed.sh` script from the `Versionable` directory will redirect to your version of the script
+and execute it.
