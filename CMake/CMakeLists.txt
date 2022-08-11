@@ -73,7 +73,7 @@ file(
 
 if ("${VERSIONABLE_VERSION_EXECUTABLE}" MATCHES "ON")
 
-    add_executable(Version ${APP_SRC} ../Cpp/VersionInfo.h ../Cpp/VersionInfo.cpp)
+    add_executable(Version ${APP_SRC})
 
     install(TARGETS Version DESTINATION bin/${PROJECT_NAME})
 endif()

@@ -23,10 +23,10 @@ const std::string getVersion() {
 
 const std::string getHomepage() {
 
-    return std::to_string(VERSIONABLE_HOMEPAGE);
+    return VERSIONABLE_HOMEPAGE;
 }
 
 const std::string getDescription() {
 
-    return std::to_string(VERSIONABLE_DESCRIPTION);
+    return VERSIONABLE_DESCRIPTION;
 }
