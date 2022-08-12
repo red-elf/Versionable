@@ -42,7 +42,12 @@ function GET_INSTALLED_VERSION {
   fi
 }
 
-if [[ "$(GET_INSTALLED_VERSION "/usr/local/lib")" = "" ]]; then
+LIB_VERSION="$(GET_INSTALLED_VERSION "/usr/local/lib" | xargs)"
+
+if [ -z "$LIB_VERSION" ]; then
 
   GET_INSTALLED_VERSION "/usr/local/bin"
+else
+
+  echo "$LIB_VERSION"
 fi
