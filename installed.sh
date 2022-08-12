@@ -42,5 +42,7 @@ function GET_INSTALLED_VERSION {
   fi
 }
 
-GET_INSTALLED_VERSION "/usr/local/lib"
-GET_INSTALLED_VERSION "/usr/local/bin"
+if [[ "$(GET_INSTALLED_VERSION "/usr/local/lib")" = "" ]]; then
+
+  GET_INSTALLED_VERSION "/usr/local/bin"
+fi
