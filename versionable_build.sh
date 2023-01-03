@@ -12,6 +12,15 @@ if [ -z "$2" ]; then
   exit 1
 fi
 
+if [ -z "$3" ]; then
+
+  JUST_BUILD=false
+
+else
+
+  JUST_BUILD=$3
+fi
+
 HERE="$(pwd)"
 TARGET="$1"
 CMAKE_PATH="$2"
@@ -27,8 +36,8 @@ fi
 . "$VERSION_SCRIPT" && \
   echo "Installing the '$VERSIONABLE_NAME' target, please wait" && \
   cd "$TARGET" && \
-  rm -rf ./Build && \
-  mkdir Build && \
+  if ! $JUST_BUILD; then rm -rf ./Build; else echo "Just building"; fi && \
+  if ! test -e Build; then mkdir Build; else echo "Build directory available"; fi && \
   cd Build && \
   . "$VERSION_SCRIPT" && cmake -GNinja -DVERSIONABLE_VERSION_PRIMARY="$VERSIONABLE_VERSION_PRIMARY" \
   -DVERSIONABLE_VERSION_SECONDARY="$VERSIONABLE_VERSION_SECONDARY" -DVERSIONABLE_NAME="$VERSIONABLE_NAME" \
