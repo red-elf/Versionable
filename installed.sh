@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function GET_INSTALLED_VERSION {
+GET_INSTALLED_VERSION() {
 
   SEARCH_PATH="/usr/local/lib"
 
