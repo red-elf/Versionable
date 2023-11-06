@@ -36,7 +36,7 @@ fi
 # shellcheck disable=SC1090
 . "$VERSION_SCRIPT" && \
   echo "Installing the '$VERSIONABLE_NAME' target, please wait" && \
-  cd "$TARGET" && go build # TODO: <--- Implement
+  cd ApplicationGo && go build # TODO: <--- Implement
   #
   # if ! $JUST_BUILD; then rm -rf ./Build; else echo "Just building"; fi && \
   # if ! test -e Build; then mkdir Build; else echo "Build directory available"; fi && \
