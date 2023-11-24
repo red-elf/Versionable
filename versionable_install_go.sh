@@ -21,6 +21,6 @@ fi
 . "$VERSION_SCRIPT" && \
   echo "Please provide your SUDO password in order to install the '$VERSIONABLE_NAME' target to your system" && \
   echo "WARNING: Not implemented installation for '$TARGET'" # TODO: <---
-  # cd "$TARGET/Build" && \
-  # sudo ninja install && \
-  # echo "The '$VERSIONABLE_NAME' target has been installed with success"
+  cd "$TARGET" && \
+  # sudo ninja install && \ 
+  echo "The '$VERSIONABLE_NAME' target has been installed with success"
