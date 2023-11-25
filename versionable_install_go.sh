@@ -22,25 +22,6 @@ fi
 # shellcheck disable=SC1090
 . "$SCRIPT_PATHS"
 
-FILE_RC=""
-    
-if test -e "$FILE_ZSH_RC"; then
-
-  FILE_RC="$FILE_ZSH_RC"
-
-else
-
-    if test -e "$FILE_BASH_RC"; then
-
-      FILE_RC="$FILE_BASH_RC"
-
-    else
-
-      echo "ERROR: No '$FILE_ZSH_RC' or '$FILE_BASH_RC' found on the system"
-      exit 1
-    fi
-fi
-
 if [ -z "$1" ]; then
 
   echo "ERROR: The target parameter has not been provided"
@@ -58,10 +39,8 @@ fi
 
 # shellcheck disable=SC1090
 . "$VERSION_SCRIPT" && \
-  echo "Please provide your SUDO password in order to install the '$VERSIONABLE_NAME' target to your system" && \
-  echo "WARNING: Not implemented installation for '$TARGET'"
   cd "$TARGET" && \
-  ADD_TO_PATH "$FILE_RC" "$(pwd)" && \
+  ADD_TO_PATH "$(pwd)" && \
   exec echo "The '$VERSIONABLE_NAME' target has been installed with success"
   # shellcheck disable=SC1090
   source "$FILE_RC" && \
