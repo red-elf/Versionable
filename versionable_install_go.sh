@@ -66,4 +66,3 @@ fi
   # shellcheck disable=SC1090
   source "$FILE_RC" && \
   core --version
-  
