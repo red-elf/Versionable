@@ -62,5 +62,6 @@ fi
   echo "WARNING: Not implemented installation for '$TARGET'"
   cd "$TARGET" && \
   ADD_TO_PATH "$FILE_RC" "$(pwd)" && \
-  echo "The '$VERSIONABLE_NAME' target has been installed with success"
+  exec echo "The '$VERSIONABLE_NAME' target has been installed with success" && \
+  core --version
   
