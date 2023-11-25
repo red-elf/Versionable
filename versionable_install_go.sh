@@ -59,7 +59,7 @@ fi
 # shellcheck disable=SC1090
 . "$VERSION_SCRIPT" && \
   echo "Please provide your SUDO password in order to install the '$VERSIONABLE_NAME' target to your system" && \
-  echo "WARNING: Not implemented installation for '$TARGET'" # TODO: <---
+  echo "WARNING: Not implemented installation for '$TARGET'"
   cd "$TARGET" && \
   ADD_TO_PATH "$FILE_RC" "$(pwd)" && \
   echo "The '$VERSIONABLE_NAME' target has been installed with success"
