@@ -23,17 +23,19 @@ The following scripts are mandatory:
 
 ```shell
 #!/bin/bash
-export VERSIONABLE_NAME="PROJECT_NAME"        # Mandatory
-export VERSIONABLE_VERSION_PRIMARY="1"        # Mandatory
-export VERSIONABLE_VERSION_SECONDARY="0"      # Mandatory
-export VERSIONABLE_VERSION_PATCH="0"          # Mandatory
+export VERSIONABLE_NAME="PROJECT_NAME"              # Mandatory
+export VERSIONABLE_NAME_NO_SPACE="PROJECT_NAME"     # Optional, but recommended
+export VERSIONABLE_VERSION_PRIMARY="1"              # Mandatory
+export VERSIONABLE_VERSION_SECONDARY="0"            # Mandatory
+export VERSIONABLE_VERSION_PATCH="0"                # Mandatory
 ```
 
 ## CMake integration
 
 To integrate the version information for your software follow the steps:
 
-Pass the values of the environment variables from the `version.sh` to the CMake script: 
+Pass the values of the environment variables from the `version.sh` to the CMake script:
+
 ```shell
 source ../../Version/version.sh && \
   cmake -DVERSIONABLE_VERSION_PRIMARY=$VERSIONABLE_VERSION_PRIMARY \
