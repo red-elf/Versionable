@@ -14,7 +14,7 @@ GET_INSTALLED_VERSION() {
 
   if test -e "$INSTALLED_SCRIPT"; then
 
-    sh "$INSTALLED_SCRIPT"
+    bash "$INSTALLED_SCRIPT"
 
   else
 

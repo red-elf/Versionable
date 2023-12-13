@@ -5,7 +5,7 @@ CURRENT_SCRIPT="Version/current.sh"
 
 if test -e "$CURRENT_SCRIPT"; then
 
-  sh "$CURRENT_SCRIPT"
+  bash "$CURRENT_SCRIPT"
 
 else
 
